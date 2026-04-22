@@ -49,6 +49,84 @@
         "template": "\"password\" OR \"passwd\" inurl:config",
         "description": "Find potential config files with credentials",
         "category": "sensitive"
+      },
+      {
+        "id": "google-9",
+        "template": "site:{query} filetype:wsdl",
+        "description": "Find potential wsdl files",
+        "category": "wsdl"
+      },
+      {
+        "id": "google-10",
+        "template": "site:{query} filetype:wsdl ext:svc",
+        "description": "Find potential svc files with svc extension",
+        "category": "wsdl"
+      },
+      {
+        "id": "google-11",
+        "template": "site:{query} inurl:asmx?wsdl or inurl:jws?wsdl",
+        "description": "Find potential soap based files",
+        "category": "wsdl"
+      },
+      {
+        "id": "google-12",
+        "template": "site:trello.com \"{query}\"",
+        "description": "Search for trello canban boards",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-13",
+        "template": "site:prezi.com \"{query}\"",
+        "description": "Search for prezi presentations",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-14",
+        "template": "site:jsdelivr.net \"{query}\"",
+        "description": "Search for cdn of node modules",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-15",
+        "template": "site:codepen.com \"{query}\"",
+        "description": "Search for codepen pens",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-16",
+        "template": "site:pastebin.com \"{query}\"",
+        "description": "Search for pastebin posts",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-17",
+        "template": "site:repl.it \"{query}\"",
+        "description": "Search for repl.it projects",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-18",
+        "template": "site:gitter.im \"{query}\"",
+        "description": "Search for gitter chat rooms",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-19",
+        "template": "site:scribd.com \"{query}\"",
+        "description": "Search for scribd pdf documents",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-20",
+        "template": "site:coggle.com \"{query}\"",
+        "description": "Search for coggle diagrams",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-21",
+        "template": "site:papaly.com \"{query}\"",
+        "description": "Search for papaly bookmarks",
+        "category": "informationLeak"
       }
     ],
     "github": [
