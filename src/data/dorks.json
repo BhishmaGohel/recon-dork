@@ -1,0 +1,133 @@
+{
+  "engines": {
+    "google": 
+    [
+      {
+        "id": "google-1",
+        "template": "intext:\"{query}\" filetype:pdf",
+        "description": "Find PDF documents containing exact phrase",
+        "category": "filetypes"
+      },
+      {
+        "id": "google-2",
+        "template": "inurl:admin \"{query}\"",
+        "description": "Search admin pages with specific term",
+        "category": "inurl"
+      },
+      {
+        "id": "google-3",
+        "template": "site:*.gov \"{query}\"",
+        "description": "Find government documents",
+        "category": "site"
+      },
+      {
+        "id": "google-4",
+        "template": "intitle:\"index of\" \"{query}\"",
+        "description": "Find indexed directories",
+        "category": "intitle"
+      },
+      {
+        "id": "google-5",
+        "template": "filetype:xlsx OR filetype:xls \"{query}\"",
+        "description": "Find Excel spreadsheets",
+        "category": "filetypes"
+      },
+      {
+        "id": "google-6",
+        "template": "inurl:backup \"{query}\" filetype:zip",
+        "description": "Find backup files",
+        "category": "combined"
+      },
+      {
+        "id": "google-7",
+        "template": "cache:{query}",
+        "description": "View cached version",
+        "category": "utility"
+      },
+      {
+        "id": "google-8",
+        "template": "\"password\" OR \"passwd\" inurl:config",
+        "description": "Find potential config files with credentials",
+        "category": "sensitive"
+      }
+    ],
+    "github": [
+      {
+        "id": "github-1",
+        "template": "path:{query} extension:env",
+        "description": "Find .env files with query term",
+        "category": "sensitive"
+      },
+      {
+        "id": "github-2",
+        "template": "\"{query}\" filename:config.php",
+        "description": "Find PHP config files",
+        "category": "config"
+      },
+      {
+        "id": "github-3",
+        "template": "\"private_key\" \"{query}\" language:JSON",
+        "description": "Find exposed private keys",
+        "category": "sensitive"
+      },
+      {
+        "id": "github-4",
+        "template": "path:sql \"{query}\" extension:sql",
+        "description": "Find SQL files with term",
+        "category": "database"
+      },
+      {
+        "id": "github-5",
+        "template": "filename:.htaccess \"{query}\"",
+        "description": "Find .htaccess files",
+        "category": "config"
+      }
+    ],
+    "shodan": [
+      {
+        "id": "shodan-1",
+        "template": "port:8080 \"{query}\"",
+        "description": "Services on port 8080",
+        "category": "port"
+      },
+      {
+        "id": "shodan-2",
+        "template": "server:\"{query}\" country:US",
+        "description": "Specific server type in US",
+        "category": "server"
+      },
+      {
+        "id": "shodan-3",
+        "template": "os:\"{query}\" \"{query}\"",
+        "description": "Devices running specific OS",
+        "category": "os"
+      },
+      {
+        "id": "shodan-4",
+        "template": "http.status:401 \"{query}\"",
+        "description": "Unauthenticated services",
+        "category": "http"
+      }
+    ],
+    "censys": [
+      {
+        "id": "censys-1",
+        "template": "services.service_name = \"{query}\"",
+        "description": "Find specific service",
+        "category": "service"
+      },
+      {
+        "id": "censys-2",
+        "template": "autonomous_system.name = \"{query}\"",
+        "description": "Search by autonomous system",
+        "category": "asn"
+      },
+      {
+        "id": "censys-3",
+        "template": "location.country = \"US\" AND services.port = 443",
+        "description": "HTTPS services in specific country",
+        "category": "location"
+      }
+    ]
+  }
+}
