@@ -3,11 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Copy, ExternalLink } from 'lucide-react'
 import { toast } from 'sonner'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/Accordion'
+import { Checkbox } from './ui/Checkbox'
 import { Button } from './ui/Button'
 import { copyToClipboard, generateSearchUrl, openInNewTab } from '@/lib/utils'
 import { ENGINE_LABELS } from '@/lib/constants'
 import { type Dork, type EngineType, type SelectedEngines } from '@/lib/types'
 import dorks from '@/data/dorks.json'
+import { useEffect, useState } from 'react'
 
 interface DorkListProps {
   query: string
@@ -26,6 +28,32 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
   const activeEngines = (Object.entries(selectedEngines) as [EngineType, boolean][])
     .filter(([, selected]) => selected)
     .map(([engine]) => engine)
+
+  const storageKey = 'checkedDorks'
+  const [checkedDorks, setCheckedDorks] = useState<Set<string>>(new Set())
+
+  useEffect(() => {
+    const saved = localStorage.getItem(storageKey)
+    if (saved) {
+      setCheckedDorks(new Set(JSON.parse(saved)))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify(Array.from(checkedDorks)))
+  }, [checkedDorks])
+
+  const toggleDork = (dorkId: string) => {
+    setCheckedDorks((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(dorkId)) {
+        newSet.delete(dorkId)
+      } else {
+        newSet.add(dorkId)
+      }
+      return newSet
+    })
+  }
 
   if (activeEngines.length === 0) {
     return (
@@ -79,6 +107,10 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
     })
   }
 
+  const countCheckedDorks = (checkedSet: Set<string>, substring: string): number => {
+    return Array.from(checkedSet).filter(str => str.includes(substring)).length;
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -121,9 +153,9 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                 <AccordionItem value={engine} className="border-b last:border-b-0">
                   <AccordionTrigger value={engine} className="hover:bg-muted/50 transition-colors w-full">
                     <div className="flex w-full items-center gap-2">
-                      <span className="font-semibold">{ENGINE_LABELS[engine]}</span>
+                      <span className="font-semibold text-xl mb-2">{ENGINE_LABELS[engine]}</span>
                       <span className="text-xs ml-auto bg-muted px-2 py-1 rounded-full">
-                        {engineDorks.length} dork{engineDorks.length !== 1 ? 's' : ''}
+                        {countCheckedDorks(checkedDorks, engine)}/{engineDorks.length} dork{engineDorks.length !== 1 ? 's' : ''}
                       </span>
                     </div>
                   </AccordionTrigger>
@@ -132,24 +164,37 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                     <div className="space-y-2 mb-4">
                       {engineDorks.map((dork: Dork, idx: number) => {
                         const finalDork = dork.template.replace(/{query}/g, query)
+                        const isChecked = checkedDorks.has(dork.id)
                         return (
                           <motion.div
                             key={dork.id}
                             initial={{ opacity: 0, x: -10 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: idx * 0.05 }}
-                            className="flex items-start gap-2 p-3 bg-muted/50 rounded-lg group hover:bg-muted transition-colors"
+                            className={`flex items-start gap-2 p-3 bg-muted/50 rounded-lg group hover:bg-muted transition-colors ${
+                              isChecked ? 'opacity-40 text-muted-foreground line-through decoration-2' : ''
+                            }`}
                           >
-                            <div className="flex-1 min-w-0">
-                              <code className="text-xs sm:text-sm break-all font-mono text-muted-foreground">
-                                {finalDork}
-                              </code>
-                              <p className="text-xs text-muted-foreground mt-1">
-                                {dork.description}
-                              </p>
-                            </div>
+                            
+                            <Checkbox
+                              checked={isChecked}
+                              onCheckedChange={() => toggleDork(dork.id)}
+                              className="my-auto ml-2 mr-4 flex-shrink-0"
+                              id={`checkbox-${dork.id}`}
+                            />
+                            <label htmlFor={`checkbox-${dork.id}`} className="flex-1 min-w-0 cursor-pointer">
+                              <div className="flex-1 min-w-0">
+                                <p className="text-md text-muted-foreground mt-1">
+                                  {dork.description}
+                                </p>
+                                <code className="text-xs sm:text-sm break-all font-mono text-muted-foreground">
+                                  {finalDork}
+                                </code>
+                              </div>
+                            </label>
+                            
 
-                            <div className="flex gap-1 flex-shrink-0">
+                            <div className="flex gap-1 flex-shrink-0 my-auto">
                                 <Button
                                   size="sm"
                                   variant="outline"
