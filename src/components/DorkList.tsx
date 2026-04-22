@@ -29,6 +29,32 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
     .filter(([, selected]) => selected)
     .map(([engine]) => engine)
 
+  const storageKey = 'checkedDorks'
+  const [checkedDorks, setCheckedDorks] = useState<Set<string>>(new Set())
+
+  useEffect(() => {
+    const saved = localStorage.getItem(storageKey)
+    if (saved) {
+      setCheckedDorks(new Set(JSON.parse(saved)))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem(storageKey, JSON.stringify(Array.from(checkedDorks)))
+  }, [checkedDorks])
+
+  const toggleDork = (dorkId: string) => {
+    setCheckedDorks((prev) => {
+      const newSet = new Set(prev)
+      if (newSet.has(dorkId)) {
+        newSet.delete(dorkId)
+      } else {
+        newSet.add(dorkId)
+      }
+      return newSet
+    })
+  }
+
   if (activeEngines.length === 0) {
     return (
       <motion.div
@@ -81,43 +107,9 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
     })
   }
 
-  const useCheckedDorks = () => {
-    const storageKey = `checkedDorks`;
-    const [checkedDorks, setCheckedDorks] = useState<Set<string>>(new Set());
-
-    React.useEffect(() => {
-      // Load from localStorage on mount
-      const saved = localStorage.getItem(storageKey);
-      if (saved) {
-        setCheckedDorks(new Set(JSON.parse(saved)));
-      }
-    }, [storageKey]);
-
-    useEffect(() => {
-      // Save to localStorage on change
-      localStorage.setItem(storageKey, JSON.stringify(Array.from(checkedDorks)));
-    }, [checkedDorks, storageKey]);
-
-    const toggleDork = (dorkId: string) => {
-      setCheckedDorks(prev => {
-        const newSet = new Set(prev);
-        if (newSet.has(dorkId)) {
-          newSet.delete(dorkId);
-        } else {
-          newSet.add(dorkId);
-        }
-        return newSet;
-      });
-    };
-
-    return { checkedDorks, toggleDork };
-  }
-
-  const { checkedDorks, toggleDork } = useCheckedDorks();
-
-  // const countCheckedDorks = (checkedSet: Set<string>, substring: string): number => {
-  //   return Array.from(checkedSet).filter(str => str.includes(substring)).length;
-  // };
+  const countCheckedDorks = (checkedSet: Set<string>, substring: string): number => {
+    return Array.from(checkedSet).filter(str => str.includes(substring)).length;
+  };
 
   return (
     <motion.div
@@ -163,7 +155,7 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                     <div className="flex w-full items-center gap-2">
                       <span className="font-semibold text-xl mb-2">{ENGINE_LABELS[engine]}</span>
                       <span className="text-xs ml-auto bg-muted px-2 py-1 rounded-full">
-                        {engineDorks.length} dork{engineDorks.length !== 1 ? 's' : ''}
+                        {countCheckedDorks(checkedDorks, engine)}/{engineDorks.length} dork{engineDorks.length !== 1 ? 's' : ''}
                       </span>
                     </div>
                   </AccordionTrigger>
