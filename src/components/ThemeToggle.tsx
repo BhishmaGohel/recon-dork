@@ -3,7 +3,6 @@ import { Moon, Sun } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { getThemePreference, setThemePreference } from '@/lib/utils'
 import { Button } from './ui/Button'
-import { Tooltip } from './ui/Tooltip'
 
 /**
  * Theme toggle component with system preference detection
