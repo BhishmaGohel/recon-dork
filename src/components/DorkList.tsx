@@ -120,10 +120,10 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                 transition={{ duration: 0.2 }}
               >
                 <AccordionItem value={engine} className="border-b last:border-b-0">
-                  <AccordionTrigger value={engine} className="hover:bg-muted/50 transition-colors">
-                    <div className="flex items-center gap-2">
+                  <AccordionTrigger value={engine} className="hover:bg-muted/50 transition-colors w-full">
+                    <div className="flex w-full items-center gap-2">
                       <span className="font-semibold">{ENGINE_LABELS[engine]}</span>
-                      <span className="text-xs bg-muted px-2 py-1 rounded-full">
+                      <span className="text-xs ml-auto bg-muted px-2 py-1 rounded-full">
                         {engineDorks.length} dork{engineDorks.length !== 1 ? 's' : ''}
                       </span>
                     </div>
@@ -151,7 +151,6 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                             </div>
 
                             <div className="flex gap-1 flex-shrink-0">
-                              <Tooltip content="Copy to clipboard">
                                 <Button
                                   size="sm"
                                   variant="outline"
@@ -161,9 +160,7 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                                 >
                                   <Copy className="h-4 w-4" />
                                 </Button>
-                              </Tooltip>
 
-                              <Tooltip content="Open in new tab">
                                 <Button
                                   size="sm"
                                   variant="outline"
@@ -173,7 +170,6 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                                 >
                                   <ExternalLink className="h-4 w-4" />
                                 </Button>
-                              </Tooltip>
                             </div>
                           </motion.div>
                         )

@@ -120,7 +120,7 @@ function App() {
         >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-muted-foreground">
             <p>
-              Built with ❤️ by Bhishma Gohel
+              Built with ❤️ by Bhishma
             </p>
             <p className="mt-2">
               Use responsibly for authorized security testing only
