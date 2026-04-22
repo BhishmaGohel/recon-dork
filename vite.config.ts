@@ -9,6 +9,7 @@ export default defineConfig({
     react(),
     babel({ presets: [reactCompilerPreset()] })
   ],
+  base: '/recon-dork/',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
