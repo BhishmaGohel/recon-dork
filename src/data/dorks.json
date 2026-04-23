@@ -132,31 +132,31 @@
     "github": [
       {
         "id": "github-1",
-        "template": "path:{query} extension:env",
+        "template": "org:{query} path:**/*.env",
         "description": "Find .env files with query term",
         "category": "sensitive"
       },
       {
         "id": "github-2",
-        "template": "\"{query}\" filename:config.php",
+        "template": "org:{query} path:**/config.php",
         "description": "Find PHP config files",
         "category": "config"
       },
       {
         "id": "github-3",
-        "template": "\"private_key\" \"{query}\" language:JSON",
+        "template": "\"private_key\" language:JSON org:{query}",
         "description": "Find exposed private keys",
         "category": "sensitive"
       },
       {
         "id": "github-4",
-        "template": "path:sql \"{query}\" extension:sql",
+        "template": "path:**/*.sql org:{query}",
         "description": "Find SQL files with term",
         "category": "database"
       },
       {
         "id": "github-5",
-        "template": "filename:.htaccess \"{query}\"",
+        "template": "path:**/*.htaccess OR path:**/**/*.htaccess org:{query}",
         "description": "Find .htaccess files",
         "category": "config"
       }
@@ -164,27 +164,51 @@
     "shodan": [
       {
         "id": "shodan-1",
-        "template": "port:8080 \"{query}\"",
+        "template": "port:8080 org:{query}",
         "description": "Services on port 8080",
         "category": "port"
       },
       {
         "id": "shodan-2",
-        "template": "server:\"{query}\" country:US",
+        "template": "product:\"nginx\" country:US org:{query}",
         "description": "Specific server type in US",
         "category": "server"
       },
       {
         "id": "shodan-3",
-        "template": "os:\"{query}\" \"{query}\"",
+        "template": "os:\"Linux\" org:{query}",
         "description": "Devices running specific OS",
         "category": "os"
       },
       {
         "id": "shodan-4",
-        "template": "http.status:401 \"{query}\"",
+        "template": "http.status:401 org:{query}",
         "description": "Unauthenticated services",
         "category": "http"
+      },
+      {
+        "id": "shodan-5",
+        "template": "port:443 http.title:\"kibana\" org:{query}",
+        "description": "Exposed Kibana dashboards (RCE chains).",
+        "category": "RCE"
+      },
+      {
+        "id": "shodan-6",
+        "template": "port:9200 http.title:\"elasticsearch\" org:{query}",
+        "description": "Exposed Elasticsearch instances (RCE chains).",
+        "category": "RCE"
+      },
+      {
+        "id": "shodan-7",
+        "template": "port:5984 http.title:\"couchdb\" org:{query}",
+        "description": "Exposed CouchDB instances (RCE chains).",
+        "category": "RCE"
+      },
+      {
+        "id": "shodan-8",
+        "template": "product:jenkins http.html:\"Dashboard\" org:{query}",
+        "description": "Exposed Jenkins instances (RCE chains).",
+        "category": "RCE"
       }
     ],
     "censys": [
