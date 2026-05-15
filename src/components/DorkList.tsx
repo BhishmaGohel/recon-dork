@@ -9,7 +9,7 @@ import { copyToClipboard, generateSearchUrl, openInNewTab } from '@/lib/utils'
 import { ENGINE_LABELS } from '@/lib/constants'
 import { type Dork, type EngineType, type SelectedEngines } from '@/lib/types'
 import dorks from '@/data/dorks.json'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 interface DorkListProps {
   query: string
@@ -31,6 +31,7 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
 
   const storageKey = 'checkedDorks'
   const [checkedDorks, setCheckedDorks] = useState<Set<string>>(new Set())
+  const previousQueryRef = useRef<string>('')
 
   useEffect(() => {
     const saved = localStorage.getItem(storageKey)
@@ -38,6 +39,14 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
       setCheckedDorks(new Set(JSON.parse(saved)))
     }
   }, [])
+
+  useEffect(() => {
+    if (previousQueryRef.current && previousQueryRef.current !== query) {
+      setCheckedDorks(new Set())
+      localStorage.removeItem(storageKey)
+    }
+    previousQueryRef.current = query
+  }, [query])
 
   useEffect(() => {
     localStorage.setItem(storageKey, JSON.stringify(Array.from(checkedDorks)))
