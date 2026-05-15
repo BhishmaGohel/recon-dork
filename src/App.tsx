@@ -18,7 +18,7 @@ function App() {
   const [query, setQuery] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [selectedEngines, setSelectedEngines] = useState<SelectedEngines>({
-    google: true,
+    google: false,
     github: false,
     shodan: false,
     censys: false,
