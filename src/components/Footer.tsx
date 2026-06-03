@@ -132,7 +132,7 @@ export function Footer() {
 
           {/* Copyright */}
           <div className="mt-6 pt-6 border-t border-border/30 text-center text-xs text-muted-foreground">
-            <p>© 2024 Recon-Dork. All rights reserved. | MIT License</p>
+            <p>© 2026 Recon-Dork. All rights reserved. | MIT License</p>
           </div>
         </motion.div>
       </div>

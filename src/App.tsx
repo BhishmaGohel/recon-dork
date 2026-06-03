@@ -125,12 +125,12 @@ function App() {
   return (
     <Router>
       <>
-        <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20 transition-colors duration-300">
+        <div className="min-h-screen flex flex-col bg-gradient-to-br from-background via-background to-muted/20 transition-colors duration-300">
           {/* Header with theme toggle */}
           <motion.header
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="sticky top-0 z-40 border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+            className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
           >
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
               <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
@@ -140,27 +140,28 @@ function App() {
             </div>
           </motion.header>
 
-          {/* Routes */}
-          <Routes>
-            <Route
-              path="/recon-dork/"
-              element={
-                <HomePage
-                  query={query}
-                  isLoading={isLoading}
-                  selectedEngines={selectedEngines}
-                  onSearch={handleSearch}
-                  onEngineToggle={handleEngineToggle}
-                  onSelectAll={handleSelectAll}
-                  onClearAll={handleClearAll}
-                />
-              }
-            />
-            <Route path="/recon-dork/ethics" element={<EthicsPage />} />
-            <Route path="/recon-dork/terms" element={<TermsPage />} />
-            <Route path="/recon-dork/resources" element={<ResourcesPage />} />
-            <Route path="/recon-dork/releases" element={<ReleasesPage />} />
-          </Routes>
+          <main className="flex-1">
+            <Routes>
+              <Route
+                path="/recon-dork/"
+                element={
+                  <HomePage
+                    query={query}
+                    isLoading={isLoading}
+                    selectedEngines={selectedEngines}
+                    onSearch={handleSearch}
+                    onEngineToggle={handleEngineToggle}
+                    onSelectAll={handleSelectAll}
+                    onClearAll={handleClearAll}
+                  />
+                }
+              />
+              <Route path="/recon-dork/ethics" element={<EthicsPage />} />
+              <Route path="/recon-dork/terms" element={<TermsPage />} />
+              <Route path="/recon-dork/resources" element={<ResourcesPage />} />
+              <Route path="/recon-dork/releases" element={<ReleasesPage />} />
+            </Routes>
+          </main>
 
           {/* Footer */}
           <Footer />
