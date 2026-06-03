@@ -183,6 +183,43 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 For issues, feature requests, or questions, please open an issue on GitHub.
 
+
 ---
+
+## Implementation Summary
+
+The Recon-Dork application is now a **complete, production-ready OSINT dork generator** with the following details:
+
+- **Core Dork Generator**: Search input with validation, engine filters (Google, GitHub, Shodan, Censys), accordion-based dork results, copy/open actions, checklist persistence in localStorage, and smart reset on query changes.
+- **Documentation Pages**: `Ethics`, `Terms`, `Resources`, and `Releases` with table-of-contents navigation, smooth scrolling, and Framer Motion animations.
+- **Resources**: 34 curated OSINT tools and learning materials (20 tools, 4 search engines, 10 learning resources).
+- **Releases**: Changelog with 6 versions (v1.0.0 → v1.5.0) and expandable release notes.
+- **Navigation & Layout**: Footer navigation, sticky header with theme toggle, and TOC sidebar for larger screens.
+- **Theming**: Dark/light theme with system detection and localStorage persistence.
+- **Accessibility & SEO**: Semantic HTML, ARIA where needed, meta tags in `index.html`, and proper heading hierarchy.
+- **Build & Performance**: Vite-based production build, minified assets, and gzipped bundle ~175 kB.
+
+### Pages & Files Added
+
+- `src/pages/EthicsPage.tsx` — Responsible use, legal frameworks, disclosure guidance.
+- `src/pages/TermsPage.tsx` — Legal disclaimers, warranty, and liability information.
+- `src/pages/ResourcesPage.tsx` — 34 curated OSINT tools and learning resources.
+- `src/pages/ReleasesPage.tsx` — Manual changelog and release notes.
+- `src/components/TableOfContents.tsx` — Sticky TOC with smooth scroll and active section highlighting.
+- `src/components/Footer.tsx` — Footer navigation with links to Ethics, Terms, Resources, and Releases.
+
+### Highlights
+
+- Dark/Light theme with system preference detection and localStorage persistence.
+- TOC component that highlights the active section as you scroll and supports smooth anchor navigation.
+- Resources page with copy-to-clipboard for URLs and external links opening in a new tab.
+- Releases page with expandable version cards showing features, fixes, and improvements.
+- Dork checklist persistence and automatic clearing when the query changes, implemented using a `useRef` to track previous query.
+
+For full implementation details, changelog, QA checklist, and a complete breakdown, see the `Releases` and `Resources` pages in the app.
+
+---
+
+**Status:** Implementation summary merged into README and the standalone summary file will be removed.
 
 **Made with ❤️ by the Bhishma**

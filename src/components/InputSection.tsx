@@ -58,7 +58,7 @@ export function InputSection({ onSearch, isLoading = false }: InputSectionProps)
           <Input
             {...register('query')}
             type="text"
-            placeholder="Enter your search term (e.g., 'admin login')"
+            placeholder="Enter your site domain or keyword (e.g. example.com)"
             className="pl-10 text-base h-12"
             disabled={isLoading}
             aria-invalid={!!errors.query}
