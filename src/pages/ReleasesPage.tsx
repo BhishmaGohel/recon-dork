@@ -5,11 +5,6 @@ import { TableOfContents } from '@/components/TableOfContents'
 import { Button } from '@/components/ui/Button'
 
 const sections = [
-  { id: 'v1-5-1', title: 'v1.5.1 - Patch' },
-  { id: 'v1-5-0-pr19', title: 'PR #19 (Master <> Develop sync)' },
-  { id: 'v1-4-2-pr18', title: 'PR #18 (Updated dorks)' },
-  { id: 'v1-4-1-pr17', title: 'PR #17 (Master <> Develop sync)' },
-  { id: 'v1-5-0', title: 'v1.5.0' },
   { id: 'v1-4-0', title: 'v1.4.0' },
   { id: 'v1-3-0', title: 'v1.3.0' },
   { id: 'v1-2-0', title: 'v1.2.0' },
@@ -29,112 +24,30 @@ interface ChangelogEntry {
 
 const releases: ChangelogEntry[] = [
   {
-    version: 'v1.5.1',
+    version: 'v1.4.0',
     date: 'June 3, 2026',
     isCurrent: true,
     features: [
-      'Merged PR #21: updated dork checklist logic and minor content updates',
       'Added additional dorks and supporting files',
+      'Added Ethics, Terms of Use, Resources, and Releases pages',
+      'Added llm.txt with prompt engineering tips and best practices',
     ],
     fixes: [
       'Patched checklist behavior to reliably reset on query changes',
       'Addressed a few localStorage edge cases during navigation',
     ],
     improvements: [
+      'Added recon-dork GitHub repository link in footer and resources',
       'Minor content and documentation refinements',
       'Small performance tweaks',
     ],
   },
   {
-    version: 'v1.5.0',
-    date: '2026-04-24',
-    isCurrent: false,
-    features: [
-      'Merged PR #19: Master <> develop synchronization and housekeeping',
-    ],
-    fixes: [
-      'Repository sync and merge conflict resolutions',
-    ],
-    improvements: [
-      'Project synchronization and minor dependency updates',
-    ],
-  },
-  {
-    version: 'v1.4.2',
-    date: '2026-04-24',
-    isCurrent: false,
-    features: [
-      'Merged PR #18: Updated dorks and templates (bulk dork updates)',
-    ],
-    fixes: [],
-    improvements: [
-      'Expanded and refined dork templates for multiple engines',
-    ],
-  },
-  {
-    version: 'v1.4.1',
-    date: '2026-04-23',
-    isCurrent: false,
-    features: [
-      'Merged PR #17: Master <> develop synchronization',
-    ],
-    fixes: [],
-    improvements: [
-      'Repository housekeeping and minor adjustments',
-    ],
-  },
-  {
-    version: 'v1.5.0',
-    date: 'June 2024',
-    isCurrent: false,
-    features: [
-      'Added comprehensive documentation pages (Ethics, Terms, Resources, Releases)',
-      'New Resources page with 30+ curated OSINT tools and learning materials',
-      'Implemented Table of Contents component for easy navigation',
-      'Added copy-to-clipboard functionality for resource URLs',
-    ],
-    fixes: [
-      'Fixed dork checklist not clearing when query changes',
-      'Fixed localStorage persistence across page navigation',
-      'Resolved TypeScript strict mode warnings',
-      'Fixed dark mode toggle performance',
-    ],
-    improvements: [
-      'Enhanced mobile responsiveness for documentation pages',
-      'Improved SEO with meta tags and structured data',
-      'Better accessibility with ARIA labels and semantic HTML',
-      'Optimized animation performance with Framer Motion',
-    ],
-  },
-  {
-    version: 'v1.4.0',
-    date: 'May 2024',
-    isCurrent: false,
-    features: [
-      'Added dark/light theme toggle with system preference detection',
-      'Implemented persistent theme preference storage',
-      'Added copy-to-clipboard for search commands',
-      'New toast notifications for user feedback',
-    ],
-    fixes: [
-      'Fixed accordion animations in Firefox',
-      'Fixed responsive layout on tablet devices',
-      'Fixed input validation edge cases',
-    ],
-    improvements: [
-      'Updated Tailwind CSS to v3.4',
-      'Improved input validation feedback',
-      'Better error handling for clipboard API',
-      'Enhanced visual hierarchy with better typography',
-    ],
-  },
-  {
     version: 'v1.3.0',
-    date: 'April 2024',
+    date: 'May 15, 2026',
     isCurrent: false,
     features: [
       'Introduced dork checklist with selection tracking',
-      'Added support for Censys search engine dorks',
       'Implemented localStorage for checklist persistence',
       'New filter section UI with better engine selection',
     ],
@@ -145,18 +58,17 @@ const releases: ChangelogEntry[] = [
     ],
     improvements: [
       'Reorganized dork categories by search engine',
-      'Better visual feedback for selected dorks',
       'Improved search result organization',
     ],
   },
   {
     version: 'v1.2.0',
-    date: 'March 2024',
+    date: 'April 23, 2026',
     isCurrent: false,
     features: [
       'Added real-time input validation (min 3 characters)',
       'New open-in-new-tab functionality for dorks',
-      'Integrated Shodan search engine support',
+      'Integrated Shodan, Censys search engine support',
       'Added dork descriptions for better understanding',
     ],
     fixes: [
@@ -172,7 +84,7 @@ const releases: ChangelogEntry[] = [
   },
   {
     version: 'v1.1.0',
-    date: 'February 2024',
+    date: 'April 22, 2026',
     isCurrent: false,
     features: [
       'Added GitHub search engine support',
@@ -192,7 +104,7 @@ const releases: ChangelogEntry[] = [
   },
   {
     version: 'v1.0.0',
-    date: 'January 2024',
+    date: 'April 22, 2026',
     isCurrent: false,
     features: [
       'Initial release of Recon-Dork application',
@@ -406,11 +318,11 @@ export function ReleasesPage() {
               <h3 className="font-semibold mb-3">Version Support</h3>
               <ul className="text-sm text-muted-foreground space-y-2">
                 <li>
-                  <span className="font-semibold text-foreground">Latest (v1.5.0):</span> Fully supported with new
+                  <span className="font-semibold text-foreground">Latest (v1.4.0):</span> Fully supported with new
                   features and bug fixes
                 </li>
                 <li>
-                  <span className="font-semibold text-foreground">v1.4.0 - v1.0.0:</span> Security patches and critical
+                  <span className="font-semibold text-foreground">v1.3.0 - v1.0.0:</span> Security patches and critical
                   fixes
                 </li>
                 <li>
