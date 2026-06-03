@@ -1,0 +1,41 @@
+# Recon Dork
+
+> The ultimate OSINT developer toolkit for discovering, testing, and managing advanced search dorks across Google, GitHub, Shodan, and Censys. Features a client-side checklist for investigation workflows and one-click raw URL execution.
+
+## Core Data & Architecture
+
+- [Complete Dork Database (JSON)](https://raw.githubusercontent.com/BhishmaGohel/recon-dork/refs/heads/master/src/data/dorks.json): Machine-readable master list containing all dorks. Structure: `{ section: [{ template, description, category }] }`.
+- [Live Application](https://bhishmagohel.github.io/recon-dork/): Interactive UI for filtering dorks by engine and category.
+- [GitHub Repository](https://github.com/bhishmagohel/recon-dork): Source code, contribution guidelines, and issue tracker.
+
+## Supported Engines
+
+- **Google**: Advanced operators for XSS, SQLi, file discovery, and sensitive data exposure.
+- **GitHub**: Queries for exposed API keys, credentials, config files, and .env leaks.
+- **Shodan**: IoT, industrial control systems, open ports, and vulnerability-specific filters.
+- **Censys**: Certificate search, host discovery, and service fingerprinting queries.
+
+## How AI Agents Should Use This Site
+
+1. **Retrieve Data**: Fetch the [JSON Database](=https://raw.githubusercontent.com/BhishmaGohel/recon-dork/refs/heads/master/src/data/dorks.json) to analyze available dorks by category or engine.
+2. **Suggest Dorks**: Recommend specific dork `templates` based on user intent (e.g., "Find exposed AWS buckets").
+3. **Generate Links**: Construct raw search URLs for immediate execution. Format: `[EngineBaseURL]?q=[EncodedTemplate]`.
+   - Google: `https://www.google.com/search?q=`
+   - GitHub: `https://github.com/search?q=`
+   - Shodan: `https://www.shodan.io/search?query=`
+   - Censys: `https://search.censys.io/search?resource=hosts&q=`
+4. **Checklist Workflow**: Instruct users to manually add suggested dorks to the site's **LocalStorage Checklist** for session-based tracking. (Note: Checklist state is client-side only; no API exists for remote saving).
+
+## Roadmap
+
+- **v2.0 (Upcoming)**: Introduction of nested subsections with accordion UI for deeper category hierarchies.
+
+## Security & Ethics
+
+- [Responsible Usage](https://bhishmagohel.github.io/recon-dork/ethics): Guidelines for ethical OSINT and authorized testing only.
+- [Disclaimer](https://bhishmagohel.github.io/recon-dork/terms): Legal disclaimers regarding unauthorized access.
+
+## Optional
+
+- [OSINT Resources](https://bhishmagohel.github.io/recon-dork/resources): Curated list of external OSINT tools and learning materials.
+- [Changelog](https://github.com/bhishmagohel/recon-dork/releases): Version history and new dork additions.   

@@ -127,6 +127,66 @@
         "template": "site:papaly.com \"{query}\"",
         "description": "Search for papaly bookmarks",
         "category": "informationLeak"
+      },
+      {
+        "id": "google-22",
+        "template": "site:padlet.com \"{query}\"",
+        "description": "Search for padlet posts",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-23",
+        "template": "site:miro.com \"{query}\"",
+        "description": "Search for miro boards",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-24",
+        "template": "site:figma.com \"{query}\"",
+        "description": "Search for figma designs",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-25",
+        "template": "site:lucidchart.com \"{query}\"",
+        "description": "Search for lucidchart diagrams",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-26",
+        "template": "site:whimsical.com \"{query}\"",
+        "description": "Search for whimsical diagrams",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-27",
+        "template": "site:excalidraw.com \"{query}\"",
+        "description": "Search for excalidraw diagrams",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-28",
+        "template": "site:draw.io \"{query}\"",
+        "description": "Search for draw.io diagrams",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-29",
+        "template": "site:diagrams.net \"{query}\"",
+        "description": "Search for diagrams.net diagrams",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-30",
+        "template": "site:canva.com \"{query}\"",
+        "description": "Search for canva designs",
+        "category": "informationLeak"
+      },
+      {
+        "id": "google-31",
+        "template": "site:genial.ly \"{query}\"",
+        "description": "Search for genial.ly designs",
+        "category": "informationLeak"
       }
     ],
     "github": [
