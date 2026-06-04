@@ -108,7 +108,7 @@ export function Footer() {
               <p>Built with ❤️ By Bhishma for the security community</p>
               <p className="mt-1">
                 Use responsibly for authorized security testing only. See{' '}
-                <Link to="/ethics" className="text-purple-600 hover:text-purple-700 dark:text-purple-400">
+                <Link to="/recon-dork/ethics" className="text-purple-600 hover:text-purple-700 dark:text-purple-400">
                   ethics guidelines
                 </Link>
                 .
