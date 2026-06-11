@@ -24,9 +24,8 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
   const data = dorks as any
   const [openAccordions, setOpenAccordions] = React.useState<string[]>([])
 
-  const getJsonEngineKey = (engine: EngineType) => (engine === 'clouds' ? 'Clouds' : engine)
   const getEngineData = (engine: EngineType) =>
-    (data.engines[getJsonEngineKey(engine)] || {}) as Record<string, Dork[]>
+    (data.engines[engine] || {}) as Record<string, Dork[]>
 
   // Get selected engines
   const activeEngines = (Object.entries(selectedEngines) as [EngineType, boolean][])
