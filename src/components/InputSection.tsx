@@ -99,20 +99,19 @@ export function InputSection({ onSearch, isLoading = false }: InputSectionProps)
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <div className="relative" onFocus={() => setIsFocused(true)} onBlur={() => setIsFocused(false)}>
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground"/>
           <Input {...register('query')} type="text" placeholder="Enter your site domain or keyword (e.g. example.com)" className="pl-10 text-base h-12" disabled={isLoading} aria-invalid={!!errors.query} aria-describedby={errors.query ? 'query-error' : undefined} maxLength={100} />
-
           <AnimatePresence>
-            {filtered.length > 0 && isFocused && (
-              <motion.div ref={containerRef} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.18 }} className="absolute left-0 right-0 top-full mt-0 z-50 bg-card/0 border border-border/10 rounded-b-md shadow-sm max-h-48 overflow-auto">
-                {filtered.map((s) => (
-                  <button key={s} type="button" onClick={() => { setValue('query', s); setFiltered([]); onSearch(s); }} className="w-full text-left px-3 py-2 text-sm hover:bg-primary bg-secondary">
-                    {s}
-                  </button>
-                ))}
-              </motion.div>
-            )}
-          </AnimatePresence>
+              {filtered.length > 0 && isFocused && (
+                <motion.div ref={containerRef} initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }} transition={{ duration: 0.18 }} className="absolute width-full left-0 right-0 top-full mt-0 z-50 border-b-2 border-l-2 border-r-2 border-primary rounded-b-md shadow-sm overflow-auto">
+                  {filtered.map((s) => (
+                    <button key={s} type="button" onClick={() => { setValue('query', s); setFiltered([]); onSearch(s); }} className="w-full text-left px-3 py-2 hover:bg-primary hover:text-background bg-background">
+                      {s}
+                    </button>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
         </div>
 
         {errors.query && (
