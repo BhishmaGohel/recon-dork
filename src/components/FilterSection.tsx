@@ -25,7 +25,6 @@ export function FilterSection({
 }: FilterSectionProps) {
   const data = dorks as any
   const selectedCount = Object.values(selectedEngines).filter(Boolean).length
-  const getJsonEngineKey = (engine: EngineType) => (engine === 'clouds' ? 'Clouds' : engine)
 
   return (
     <motion.div
@@ -44,7 +43,7 @@ export function FilterSection({
               {ENGINES.map((engine) => {
                 const engineKey = engine as EngineType
                 const isSelected = selectedEngines[engineKey as keyof SelectedEngines]
-                const engineData = (data.engines[getJsonEngineKey(engineKey)] || {}) as Record<string, any[]>
+                const engineData = (data.engines[engineKey] || {}) as Record<string, any[]>
                 const dorkCount = Object.values(engineData).reduce((sum, array) => sum + array.length, 0)
 
                 return (
