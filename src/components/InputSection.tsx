@@ -3,11 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Loader2 } from 'lucide-react'
 import { SearchSchema, type SearchInput } from '@/lib/types'
-import { INPUT_MIN_LENGTH } from '@/lib/constants'
 import { Button } from './ui/Button'
 import { Input } from './ui/Input'
 import { useEffect, useState, useRef } from 'react'
-import { i } from 'framer-motion/client'
 
 interface InputSectionProps {
   onSearch: (query: string) => void
