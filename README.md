@@ -1,8 +1,8 @@
 # Dork Generator 🚀
 
-**Professional FAANG-level search engine dork generator with React 18, TypeScript, Tailwind CSS, and Framer Motion.**
+Professional search engine dork generator with React, TypeScript, Tailwind CSS, and Framer Motion.
 
-A production-ready web application for generating powerful search engine dorks for authorized security testing and OSINT research.
+A production-ready single-page app for generating powerful search engine dorks for authorized security testing and OSINT research.
 
 ## ✨ Features
 
@@ -19,37 +19,43 @@ A production-ready web application for generating powerful search engine dorks f
 - 🚀 **Production Ready**: Zero console errors/warnings, Lighthouse 95+ score
 - ⚙️ **Type Safe**: 100% TypeScript coverage with strict mode
 
+- **Per-query selection persistence**: selections are saved in localStorage under `recondork` and keyed by the query/domain, enabling quick recall of prior selections.
+- **Autocomplete / Suggestions**: the search input shows recent queries (animated dropdown) and auto-loads saved selections when an exact match is typed.
+- **Nested accordion UI**: dorks are grouped by engine and category; each engine/category shows counts and checked dork totals.
+- **Previous Domains**: the app surfaces recently used queries/domains for fast re-use.
+
 ## 🛠️ Tech Stack
 
-- **React 18** + TypeScript 5
-- **Vite 5** - Lightning-fast build tool
+- **React 19 (latest)** + **TypeScript 6 (strict mode)**
+- **Vite 8** - Lightning-fast build tool
 - **Tailwind CSS 3.4** - Utility-first CSS framework
-- **shadcn/ui** - High-quality component library
-- **Framer Motion 11** - Smooth animations and transitions
+- **shadcn/ui** - High-quality component primitives
+- **Framer Motion** - Smooth animations and transitions
 - **React Hook Form** - Efficient form management
-- **Zod** - TypeScript-first schema validation
-- **Lucide React** - Beautiful SVG icons
+- **Zod** - Type-safe schema validation
+- **Lucide React** - SVG icons
 - **Sonner** - Toast notifications
 - **ESLint + Prettier** - Code quality
 
-## 📦 Data Structure
+## 📦 Data Model
 
-The application includes 20+ realistic dorks across 4 search engines:
+Dorks are now modeled as a nested JSON: engines → categories → array of dork objects. This enables grouped UI with per-category counts and a hierarchical accordion layout.
+
+Example shape:
 
 ```json
 {
   "engines": {
-    "google": [
-      {
-        "id": "google-1",
-        "template": "intext:\"{query}\" filetype:pdf",
-        "description": "Find PDF documents containing exact phrase",
-        "category": "filetypes"
-      }
-    ],
-    "github": [...],
-    "shodan": [...],
-    "censys": [...]
+    "google": {
+      "filetypes": [
+        { "id": "google-1", "template": "intext:\"{query}\" filetype:pdf", "description": "Find PDF documents containing exact phrase" }
+      ],
+      "admin": [ ... ]
+    },
+    "clouds": { ... },
+    "github": { ... },
+    "shodan": { ... },
+    "censys": { ... }
   }
 }
 ```
@@ -88,6 +94,12 @@ npm run preview
 4. **Copy or open** - Click copy icon to copy to clipboard, or open in new tab
 5. **Bulk operations** - Use "Open All" buttons to open all dorks simultaneously
 
+Additional features:
+- **Per-query selection persistence**: selections are saved in localStorage under `recondork` and keyed by the query/domain. This allows you to recall previous selections for the same query.
+- **Autocomplete / Suggestions**: the search input shows recent queries (animated dropdown) and will auto-load saved selections when you type an exact match.
+- **Nested accordion UI**: dorks are grouped by engine and category; each engine/category shows counts and checked dork totals.
+- **Previous Domains**: the app surfaces recently used queries/domains for fast re-use.
+
 ## 📋 File Structure
 
 ```
@@ -102,13 +114,22 @@ src/
 │   ├── DorkList.tsx
 │   ├── FilterSection.tsx
 │   ├── InputSection.tsx
-│   └── ThemeToggle.tsx
+│   ├── ThemeToggle.tsx
+|   ├── TableOfContents.tsx
+│   └── Footer.tsx
+├── pages/
+│   ├── EthicsPage.tsx
+│   ├── TermsPage.tsx
+│   ├── ResourcesPage.tsx
+│   └── ReleasesPage.tsx
 ├── lib/
 │   ├── constants.ts
 │   ├── types.ts
 │   └── utils.ts
 ├── data/
 │   └── dorks.json
+├── assets/
+│   └── (static images / icons)
 ├── App.tsx
 ├── globals.css
 └── main.tsx
@@ -122,12 +143,31 @@ src/
 - **Accessibility** - ARIA labels, semantic HTML, keyboard navigation
 - **Dark mode** - Full dark theme support with CSS variables
 
+## Persistence & Storage
+
+- `checkedDorks`: localStorage key storing the currently-checked dork IDs for the active session/query.
+- `recondork`: repository-scoped localStorage object that maps a query/domain to a nested structure of engine → category → [dork-ids]. The app uses this to provide suggestions and to re-apply selections automatically when a saved query is selected.
+
 ## ⚡ Performance
 
 - **Code splitting** - Lazy-loaded components
 - **Optimized bundle** - Minified and tree-shaken
 - **Fast initial load** - Vite's instant HMR
 - **Lighthouse score** - 95+ on all metrics
+
+## CI / Deployment
+
+- A GitHub Actions workflow is included to build the app and deploy the `dist` output to GitHub Pages (`gh-pages`) for simple static hosting. See `.github/workflows/deploy.yml` for details.
+
+## Notable Pages
+
+- `Ethics`, `Terms`, `Resources`, and `Releases` documentation pages are part of the SPA. `Releases` contains a manually-maintained changelog.
+
+## Next Improvements (Ideas)
+
+- keyboard navigation for the suggestion list (arrow keys + Enter)
+- timestamped suggestion entries and recency sorting
+- server-backed persistence for multi-machine sync (optional)
 
 ```
 Lighthouse Report:

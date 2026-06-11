@@ -75,6 +75,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
   const [selectedEngines, setSelectedEngines] = useState<SelectedEngines>({
     google: false,
+    clouds: false,
     github: false,
     shodan: false,
     censys: false,
@@ -107,6 +108,7 @@ function App() {
   const handleSelectAll = () => {
     setSelectedEngines({
       google: true,
+      clouds: true,
       github: true,
       shodan: true,
       censys: true,
@@ -116,6 +118,7 @@ function App() {
   const handleClearAll = () => {
     setSelectedEngines({
       google: false,
+      clouds: false,
       github: false,
       shodan: false,
       censys: false,
@@ -133,7 +136,7 @@ function App() {
             className="sticky top-0 z-50 border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
           >
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
-              <a href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+              <a href="/recon-dork/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
                 <h2 className="font-bold text-lg hidden sm:inline">Dork Generator</h2>
               </a>
               <ThemeToggle />

@@ -1,7 +1,8 @@
-export const ENGINES = ['google', 'github', 'shodan', 'censys'] as const
+export const ENGINES = ['google', 'clouds', 'github', 'shodan', 'censys'] as const
 
 export const ENGINE_LABELS: Record<string, string> = {
   google: 'Google',
+  clouds: 'Clouds',
   github: 'GitHub',
   shodan: 'Shodan',
   censys: 'Censys',
@@ -9,6 +10,7 @@ export const ENGINE_LABELS: Record<string, string> = {
 
 export const ENGINE_DESCRIPTIONS: Record<string, string> = {
   google: 'Web search engine',
+  clouds: 'Cloud service search',
   github: 'Repository search',
   shodan: 'IoT device search',
   censys: 'Certificate search',

@@ -5,6 +5,7 @@ import { TableOfContents } from '@/components/TableOfContents'
 import { Button } from '@/components/ui/Button'
 
 const sections = [
+  { id: 'v1-5-0', title: 'v1.5.0' },
   { id: 'v1-4-0', title: 'v1.4.0' },
   { id: 'v1-3-0', title: 'v1.3.0' },
   { id: 'v1-2-0', title: 'v1.2.0' },
@@ -24,9 +25,24 @@ interface ChangelogEntry {
 
 const releases: ChangelogEntry[] = [
   {
+    version: 'v1.5.0',
+    date: 'June 11, 2026',
+    isCurrent: true,
+    features: [
+      'Added search bar suggestions based on recent queries',
+      'Added support for new dorks and updated existing ones'
+    ],
+    fixes: [],
+    improvements: [
+      'Updated dork structure and added new dorks across all engines',
+      'Minor content and documentation refinements',
+      'Small performance tweaks',
+    ],
+  },
+  {
     version: 'v1.4.0',
     date: 'June 3, 2026',
-    isCurrent: true,
+    isCurrent: false,
     features: [
       'Added additional dorks and supporting files',
       'Added Ethics, Terms of Use, Resources, and Releases pages',
