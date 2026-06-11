@@ -251,7 +251,7 @@ export function DorkList({ query, selectedEngines }: DorkListProps) {
                             <div className="flex items-center gap-2">
                               <span className="font-semibold">{category}</span>
                               <span className="text-xs ml-auto bg-background px-2 py-1 rounded-full">
-                                {dorks.length} dork{dorks.length !== 1 ? 's' : ''}
+                                {countCheckedDorks(dorks.map((d) => d.id))}/{dorks.length} dork{dorks.length !== 1 ? 's' : ''}
                               </span>
                             </div>
                           </AccordionTrigger>
