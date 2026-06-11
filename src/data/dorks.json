@@ -1,295 +1,347 @@
 {
   "engines": {
-    "google": 
-    [
-      {
-        "id": "google-1",
-        "template": "intext:\"{query}\" filetype:pdf",
-        "description": "Find PDF documents containing exact phrase",
-        "category": "filetypes"
-      },
-      {
-        "id": "google-2",
-        "template": "inurl:admin \"{query}\"",
-        "description": "Search admin pages with specific term",
-        "category": "inurl"
-      },
-      {
-        "id": "google-3",
-        "template": "site:*.gov \"{query}\"",
-        "description": "Find government documents",
-        "category": "site"
-      },
-      {
-        "id": "google-4",
-        "template": "intitle:\"index of\" \"{query}\"",
-        "description": "Find indexed directories",
-        "category": "intitle"
-      },
-      {
-        "id": "google-5",
-        "template": "filetype:xlsx OR filetype:xls \"{query}\"",
-        "description": "Find Excel spreadsheets",
-        "category": "filetypes"
-      },
-      {
-        "id": "google-6",
-        "template": "inurl:backup \"{query}\" filetype:zip",
-        "description": "Find backup files",
-        "category": "combined"
-      },
-      {
-        "id": "google-7",
-        "template": "cache:{query}",
-        "description": "View cached version",
-        "category": "utility"
-      },
-      {
-        "id": "google-8",
-        "template": "\"password\" OR \"passwd\" inurl:config",
-        "description": "Find potential config files with credentials",
-        "category": "sensitive"
-      },
-      {
-        "id": "google-9",
-        "template": "site:{query} filetype:wsdl",
-        "description": "Find potential wsdl files",
-        "category": "wsdl"
-      },
-      {
-        "id": "google-10",
-        "template": "site:{query} filetype:wsdl ext:svc",
-        "description": "Find potential svc files with svc extension",
-        "category": "wsdl"
-      },
-      {
-        "id": "google-11",
-        "template": "site:{query} inurl:asmx?wsdl or inurl:jws?wsdl",
-        "description": "Find potential soap based files",
-        "category": "wsdl"
-      },
-      {
-        "id": "google-12",
-        "template": "site:trello.com \"{query}\"",
-        "description": "Search for trello canban boards",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-13",
-        "template": "site:prezi.com \"{query}\"",
-        "description": "Search for prezi presentations",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-14",
-        "template": "site:jsdelivr.net \"{query}\"",
-        "description": "Search for cdn of node modules",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-15",
-        "template": "site:codepen.com \"{query}\"",
-        "description": "Search for codepen pens",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-16",
-        "template": "site:pastebin.com \"{query}\"",
-        "description": "Search for pastebin posts",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-17",
-        "template": "site:repl.it \"{query}\"",
-        "description": "Search for repl.it projects",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-18",
-        "template": "site:gitter.im \"{query}\"",
-        "description": "Search for gitter chat rooms",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-19",
-        "template": "site:scribd.com \"{query}\"",
-        "description": "Search for scribd pdf documents",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-20",
-        "template": "site:coggle.com \"{query}\"",
-        "description": "Search for coggle diagrams",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-21",
-        "template": "site:papaly.com \"{query}\"",
-        "description": "Search for papaly bookmarks",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-22",
-        "template": "site:padlet.com \"{query}\"",
-        "description": "Search for padlet posts",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-23",
-        "template": "site:miro.com \"{query}\"",
-        "description": "Search for miro boards",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-24",
-        "template": "site:figma.com \"{query}\"",
-        "description": "Search for figma designs",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-25",
-        "template": "site:lucidchart.com \"{query}\"",
-        "description": "Search for lucidchart diagrams",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-26",
-        "template": "site:whimsical.com \"{query}\"",
-        "description": "Search for whimsical diagrams",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-27",
-        "template": "site:excalidraw.com \"{query}\"",
-        "description": "Search for excalidraw diagrams",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-28",
-        "template": "site:draw.io \"{query}\"",
-        "description": "Search for draw.io diagrams",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-29",
-        "template": "site:diagrams.net \"{query}\"",
-        "description": "Search for diagrams.net diagrams",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-30",
-        "template": "site:canva.com \"{query}\"",
-        "description": "Search for canva designs",
-        "category": "informationLeak"
-      },
-      {
-        "id": "google-31",
-        "template": "site:genial.ly \"{query}\"",
-        "description": "Search for genial.ly designs",
-        "category": "informationLeak"
-      }
-    ],
-    "github": [
-      {
-        "id": "github-1",
-        "template": "org:{query} path:**/*.env",
-        "description": "Find .env files with query term",
-        "category": "sensitive"
-      },
-      {
-        "id": "github-2",
-        "template": "org:{query} path:**/config.php",
-        "description": "Find PHP config files",
-        "category": "config"
-      },
-      {
-        "id": "github-3",
-        "template": "\"private_key\" language:JSON org:{query}",
-        "description": "Find exposed private keys",
-        "category": "sensitive"
-      },
-      {
-        "id": "github-4",
-        "template": "path:**/*.sql org:{query}",
-        "description": "Find SQL files with term",
-        "category": "database"
-      },
-      {
-        "id": "github-5",
-        "template": "path:**/*.htaccess OR path:**/**/*.htaccess org:{query}",
-        "description": "Find .htaccess files",
-        "category": "config"
-      }
-    ],
-    "shodan": [
-      {
-        "id": "shodan-1",
-        "template": "port:8080 org:{query}",
-        "description": "Services on port 8080",
-        "category": "port"
-      },
-      {
-        "id": "shodan-2",
-        "template": "product:\"nginx\" country:US org:{query}",
-        "description": "Specific server type in US",
-        "category": "server"
-      },
-      {
-        "id": "shodan-3",
-        "template": "os:\"Linux\" org:{query}",
-        "description": "Devices running specific OS",
-        "category": "os"
-      },
-      {
-        "id": "shodan-4",
-        "template": "http.status:401 org:{query}",
-        "description": "Unauthenticated services",
-        "category": "http"
-      },
-      {
-        "id": "shodan-5",
-        "template": "port:443 http.title:\"kibana\" org:{query}",
-        "description": "Exposed Kibana dashboards (RCE chains).",
-        "category": "RCE"
-      },
-      {
-        "id": "shodan-6",
-        "template": "port:9200 http.title:\"elasticsearch\" org:{query}",
-        "description": "Exposed Elasticsearch instances (RCE chains).",
-        "category": "RCE"
-      },
-      {
-        "id": "shodan-7",
-        "template": "port:5984 http.title:\"couchdb\" org:{query}",
-        "description": "Exposed CouchDB instances (RCE chains).",
-        "category": "RCE"
-      },
-      {
-        "id": "shodan-8",
-        "template": "product:jenkins http.html:\"Dashboard\" org:{query}",
-        "description": "Exposed Jenkins instances (RCE chains).",
-        "category": "RCE"
-      }
-    ],
-    "censys": [
-      {
-        "id": "censys-1",
-        "template": "services.service_name = \"{query}\"",
-        "description": "Find specific service",
-        "category": "service"
-      },
-      {
-        "id": "censys-2",
-        "template": "autonomous_system.name = \"{query}\"",
-        "description": "Search by autonomous system",
-        "category": "asn"
-      },
-      {
-        "id": "censys-3",
-        "template": "location.country = \"US\" AND services.port = 443",
-        "description": "HTTPS services in specific country",
-        "category": "location"
-      }
-    ]
+    "google": {
+      "information Leak" : [
+        {
+          "id": "google-1",
+          "template": "intext:\"{query}\" filetype:pdf",
+          "description": "Find PDF documents containing exact phrase"
+        },
+        {
+          "id": "google-2",
+          "template": "site:*.gov \"{query}\"",
+          "description": "Find government documents",
+          "category": "site"
+        },
+        {
+          "id": "google-3",
+          "template": "filetype:xlsx OR filetype:xls \"{query}\"",
+          "description": "Find Excel spreadsheets"
+        },
+        {
+          "id": "google-4",
+          "template": "site:trello.com \"{query}\"",
+          "description": "Search for trello canban boards"
+        },
+        {
+          "id": "google-5",
+          "template": "site:trello.com \"{query}\"",
+          "description": "Search for trello canban boards"
+        },
+        {
+          "id": "google-6",
+          "template": "site:prezi.com \"{query}\"",
+          "description": "Search for prezi presentations"
+        },
+        {
+          "id": "google-7",
+          "template": "site:jsdelivr.net \"{query}\"",
+          "description": "Search for cdn of node modules"
+        },
+        {
+          "id": "google-8",
+          "template": "site:codepen.com \"{query}\"",
+          "description": "Search for codepen pens"
+        },
+        {
+          "id": "google-9",
+          "template": "site:pastebin.com \"{query}\"",
+          "description": "Search for pastebin posts"
+        },
+        {
+          "id": "google-10",
+          "template": "site:repl.it \"{query}\"",
+          "description": "Search for repl.it projects"
+        },
+        {
+          "id": "google-11",
+          "template": "site:gitter.im \"{query}\"",
+          "description": "Search for gitter chat rooms"
+        },
+        {
+          "id": "google-12",
+          "template": "site:scribd.com \"{query}\"",
+          "description": "Search for scribd pdf documents"
+        },
+        {
+          "id": "google-13",
+          "template": "site:coggle.com \"{query}\"",
+          "description": "Search for coggle diagrams"
+        },
+        {
+          "id": "google-14",
+          "template": "site:papaly.com \"{query}\"",
+          "description": "Search for papaly bookmarks"
+        },
+        {
+          "id": "google-15",
+          "template": "site:padlet.com \"{query}\"",
+          "description": "Search for padlet posts"
+        },
+        {
+          "id": "google-16",
+          "template": "site:miro.com \"{query}\"",
+          "description": "Search for miro boards"
+        },
+        {
+          "id": "google-17",
+          "template": "site:figma.com \"{query}\"",
+          "description": "Search for figma designs"
+        },
+        {
+          "id": "google-18",
+          "template": "site:lucidchart.com \"{query}\"",
+          "description": "Search for lucidchart diagrams"
+        },
+        {
+          "id": "google-19",
+          "template": "site:whimsical.com \"{query}\"",
+          "description": "Search for whimsical diagrams"
+        },
+        {
+          "id": "google-20",
+          "template": "site:excalidraw.com \"{query}\"",
+          "description": "Search for excalidraw diagrams"
+        },
+        {
+          "id": "google-21",
+          "template": "site:draw.io \"{query}\"",
+          "description": "Search for draw.io diagrams"
+        },
+        {
+          "id": "google-22",
+          "template": "site:diagrams.net \"{query}\"",
+          "description": "Search for diagrams.net diagrams"
+        },
+        {
+          "id": "google-23",
+          "template": "site:canva.com \"{query}\"",
+          "description": "Search for canva designs"
+        },
+        {
+          "id": "google-24",
+          "template": "site:genial.ly \"{query}\"",
+          "description": "Search for genial.ly designs"
+        },
+        {
+          "id": "google-25",
+          "template": "site:http://sharepoint.com \"{query}\"",
+          "description": "Search for files in publi SharePoint"
+        },
+        {
+          "id": "google-26",
+          "template": "site:firebaseio.com \"{query}\"",
+          "description": "Search for files in public Firebase"
+        },
+        {
+          "id": "google-27",
+          "template": "site:jfrog.io \"{query}\"",
+          "description": "Search for files in public JFrog repositories"
+        }
+      ],
+      "Valuable for Recon": [
+        {
+          "id": "google-28",
+          "template": "inurl:admin \"{query}\"",
+          "description": "Search admin pages with specific term"
+        },
+        {
+          "id": "google-29",
+          "template": "intitle:\"index of\" \"{query}\"",
+          "description": "Find indexed directories"
+        },
+        {
+          "id": "google-30",
+          "template": "inurl:backup \"{query}\" filetype:zip",
+          "description": "Find backup files"
+        },
+        {
+          "id": "google-31",
+          "template": "cache:{query}",
+          "description": "View cached version"
+        },
+        {
+          "id": "google-32",
+          "template": "\"password\" OR \"passwd\" inurl:config",
+          "description": "Find potential config files with credentials"
+        },
+        {
+          "id": "google-33",
+          "template": "site:{query} filetype:wsdl",
+          "description": "Find potential wsdl files"
+        },
+        {
+          "id": "google-34",
+          "template": "site:{query} filetype:wsdl ext:svc",
+          "description": "Find potential svc files with svc extension"
+        },
+        {
+          "id": "google-35",
+          "template": "site:{query} inurl:asmx?wsdl or inurl:jws?wsdl",
+          "description": "Find potential soap based files"
+        }
+      ]
+    },
+    "Clouds": {
+      "Cloud Storage": [
+        {
+          "id": "cloud-1",
+          "template": "site:http://s3-external-1.amazonaws.com \"{query}\"",
+          "description": "Search for files in public S3 buckets"
+        },
+        {
+          "id": "cloud-2",
+          "template": "site:http://s3.dualstack.us-east-1.amazonaws.com \"{query}\"",
+          "description": "Search for files in public S3 buckets (dualstack)"
+        },
+        {
+          "id": "cloud-3",
+          "template": "site:storage.googleapis.com \"{query}\"",
+          "description": "Search for files in public Google Cloud Storage"
+        },
+        {
+          "id": "cloud-4",
+          "template": "site:docs.google.com inurl:'/d/' \"{query}\"",
+          "description": "Search for files in public Google Docs"
+        },
+        {
+          "id": "cloud-5",
+          "template": "site:drive.google.com inurl:'/file/d/' \"{query}\"",
+          "description": "Search for files in public Google Drive"
+        },
+        {
+          "id": "cloud-6",
+          "template": "site:dropbox.com \"{query}\"",
+          "description": "Search for files in public Dropbox"
+        },
+        {
+          "id": "cloud-7",
+          "template": "site:onedrive.live.com \"{query}\"",
+          "description": "Search for files in public OneDrive"
+        },
+        {
+          "id": "cloud-8",
+          "template": "site:box.com \"{query}\"",
+          "description": "Search for files in public Box"
+        },
+        {
+          "id": "cloud-9",
+          "template": "site:icloud.com \"{query}\"",
+          "description": "Search for files in public iCloud"
+        },
+        {
+          "id": "cloud-10",
+          "template": "site:dropbox.com/s \"{query}\"",
+          "description": "Search for files in public Dropbox"
+        },
+        {
+          "id": "cloud-11",
+          "template": "site:dev.azure.com \"{query}\"",
+          "description": "Search for files in public Azure DevOps"
+        }
+      ]
+    },
+    "github": {
+      "Exposed sensitive Data": [
+        {
+          "id": "github-1",
+          "template": "org:{query} path:**/*.env",
+          "description": "Find .env files with query term"
+        },
+        {
+          "id": "github-3",
+          "template": "\"private_key\" language:JSON org:{query}",
+          "description": "Find exposed private keys"
+        },
+        {
+          "id": "github-4",
+          "template": "path:**/*.sql org:{query}",
+          "description": "Find SQL files with term"
+        }
+      ],
+      "Exposed config files": [
+        {
+          "id": "github-2",
+          "template": "org:{query} path:**/config.php",
+          "description": "Find PHP config files"
+        },
+        {
+          "id": "github-5",
+          "template": "path:**/*.htaccess OR path:**/**/*.htaccess org:{query}",
+          "description": "Find .htaccess files"
+        }
+      ]
+    },
+    "shodan": {
+      "http and port": [
+        {
+          "id": "shodan-1",
+          "template": "port:8080 org:{query}",
+          "description": "Services on port 8080"
+        },
+        {
+          "id": "shodan-2",
+          "template": "http.status:401 org:{query}",
+          "description": "Unauthenticated services"
+        }
+      ],
+      "Servers and OS": [
+        {
+          "id": "shodan-3",
+          "template": "product:\"nginx\" country:US org:{query}",
+          "description": "Specific server type in US"
+        },
+        {
+          "id": "shodan-4",
+          "template": "os:\"Linux\" org:{query}",
+          "description": "Devices running specific OS"
+        }
+      ],
+      "RCE chains": [
+        {
+          "id": "shodan-5",
+          "template": "port:443 http.title:\"kibana\" org:{query}",
+          "description": "Exposed Kibana dashboards (RCE chains)."
+        },
+        {
+          "id": "shodan-6",
+          "template": "port:9200 http.title:\"elasticsearch\" org:{query}",
+          "description": "Exposed Elasticsearch instances (RCE chains)."
+        },
+        {
+          "id": "shodan-7",
+          "template": "port:5984 http.title:\"couchdb\" org:{query}",
+          "description": "Exposed CouchDB instances (RCE chains)."
+        },
+        {
+          "id": "shodan-8",
+          "template": "product:jenkins http.html:\"Dashboard\" org:{query}",
+          "description": "Exposed Jenkins instances (RCE chains)."
+        } 
+      ]
+    },
+    "censys": {
+      "Services": [
+        {
+          "id": "censys-1",
+          "template": "services.service_name = \"{query}\"",
+          "description": "Find specific service"
+        }
+      ],
+      "ASN": [
+        {
+          "id": "censys-2",
+          "template": "autonomous_system.name = \"{query}\"",
+          "description": "Search by autonomous system"
+        }
+      ],
+      "Location": [
+        {
+          "id": "censys-3",
+          "template": "location.country = \"US\" AND services.port = 443",
+          "description": "HTTPS services in specific country"
+        }
+      ]
+    }
   }
 }
