@@ -41,6 +41,7 @@ export function generateSearchUrl(
 
   const engines: Record<string, string> = {
     google: 'https://www.google.com/search?q=',
+    clouds: 'https://www.google.com/search?q=',
     github: 'https://github.com/search?q=',
     shodan: 'https://www.shodan.io/search?query=',
     censys: 'https://censys.io/ipv4?q=',

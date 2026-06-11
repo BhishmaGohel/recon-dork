@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Check } from 'lucide-react'
 import { ENGINES, ENGINE_LABELS } from '@/lib/constants'
-import { type SelectedEngines, type EngineType } from '@/lib/types'
+import { type SelectedEngines, type EngineType} from '@/lib/types'
 import { Button } from './ui/Button'
 import { Badge } from './ui/Badge'
 import dorks from '@/data/dorks.json'
@@ -25,6 +25,7 @@ export function FilterSection({
 }: FilterSectionProps) {
   const data = dorks as any
   const selectedCount = Object.values(selectedEngines).filter(Boolean).length
+  const getJsonEngineKey = (engine: EngineType) => (engine === 'clouds' ? 'Clouds' : engine)
 
   return (
     <motion.div
@@ -36,14 +37,15 @@ export function FilterSection({
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="flex-1 w-full">
           <label className="text-sm font-semibold text-muted-foreground mb-3 block">
-            Select Search Engines ({selectedCount}/4)
+            Select Search Engines ({selectedCount}/5)
           </label>
           <div className="flex flex-wrap gap-2">
             <AnimatePresence mode="popLayout">
               {ENGINES.map((engine) => {
                 const engineKey = engine as EngineType
                 const isSelected = selectedEngines[engineKey as keyof SelectedEngines]
-                const dorkCount = data.engines[engine]?.length || 0
+                const engineData = (data.engines[getJsonEngineKey(engineKey)] || {}) as Record<string, any[]>
+                const dorkCount = Object.values(engineData).reduce((sum, array) => sum + array.length, 0)
 
                 return (
                   <motion.div
