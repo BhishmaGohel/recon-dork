@@ -1,272 +1,381 @@
 {
   "engines": {
     "google": {
+      "Valuable for Recon": [
+        {
+          "id": "a208e4e7-0a90-4587-a961-fdc8a77ffe9b",
+          "template": "inurl:admin \"{query}\"",
+          "description": "Search admin pages with specific term"
+        },
+        {
+          "id": "a208e4ef-ec32-4ef5-b217-4c9219e36c8c",
+          "template": "intitle:\"index of\" \"{query}\"",
+          "description": "Find indexed directories"
+        },
+        {
+          "id": "a208e501-71b8-4a25-b0b4-6ae28374c9cc",
+          "template": "inurl:backup \"{query}\" filetype:zip",
+          "description": "Find backup files"
+        },
+        {
+          "id": "a208e50d-affe-4a3b-955d-6d08ca3088b6",
+          "template": "cache:{query}",
+          "description": "View cached version"
+        },
+        {
+          "id": "a208e519-c48d-4f02-a110-2fde91c8abe1",
+          "template": "\"password\" OR \"passwd\" inurl:config",
+          "description": "Find potential config files with credentials"
+        },
+        {
+          "id": "a208e522-027f-4610-976f-72b8952969c9",
+          "template": "site:{query} filetype:wsdl",
+          "description": "Find potential wsdl files"
+        },
+        {
+          "id": "a208e52b-a2a4-4223-bb97-6b32faa15edb",
+          "template": "site:{query} filetype:wsdl ext:svc",
+          "description": "Find potential svc files with svc extension"
+        },
+        {
+          "id": "a208e535-4aa0-4ed5-a0c0-f3584d480641",
+          "template": "site:{query} inurl:asmx?wsdl or inurl:jws?wsdl",
+          "description": "Find potential soap based files"
+        },
+        {
+          "id": "a208e53f-0c1b-4d3e-8f5c-2f9b6e7c8a1d",
+          "template": "s3 site:amazonaws.com filetype:log \"{query}\"",
+          "description": "Find log files in public S3 buckets"
+        }
+      ],
       "information Leak" : [
         {
-          "id": "google-1",
+          "id": "a208e42b-1c7d-4c9b-9d8c-4d699b937741",
           "template": "intext:\"{query}\" filetype:pdf",
           "description": "Find PDF documents containing exact phrase"
         },
         {
-          "id": "google-2",
+          "id": "a208e420-1c7d-4c9b-9d8c-4d699b937741",
           "template": "site:*.gov \"{query}\"",
           "description": "Find government documents",
           "category": "site"
         },
         {
-          "id": "google-3",
+          "id": "a208e413-575d-40bd-906e-f1b9f1a87f27",
           "template": "filetype:xlsx OR filetype:xls \"{query}\"",
           "description": "Find Excel spreadsheets"
         },
         {
-          "id": "google-4",
+          "id": "a208e408-9936-4ff1-9e9c-4677e6fb883f",
           "template": "site:trello.com \"{query}\"",
           "description": "Search for trello canban boards"
         },
         {
-          "id": "google-5",
+          "id": "a208e3ff-04be-4b98-9a87-26a346991d02",
           "template": "site:trello.com \"{query}\"",
           "description": "Search for trello canban boards"
         },
         {
-          "id": "google-6",
+          "id": "a208e3ec-2c00-49d4-a7b1-555b170047bd",
           "template": "site:prezi.com \"{query}\"",
           "description": "Search for prezi presentations"
         },
         {
-          "id": "google-7",
+          "id": "a208e3e1-bd25-42ca-a068-0318b2eb5142",
           "template": "site:jsdelivr.net \"{query}\"",
           "description": "Search for cdn of node modules"
         },
         {
-          "id": "google-8",
+          "id": "a208e3d7-c61d-450b-be32-a7bdefd77384",
           "template": "site:codepen.com \"{query}\"",
           "description": "Search for codepen pens"
         },
         {
-          "id": "google-9",
+          "id": "a208e3cf-f487-4c9b-8851-434c0d1c7e25",
           "template": "site:pastebin.com \"{query}\"",
           "description": "Search for pastebin posts"
         },
         {
-          "id": "google-10",
+          "id": "a208e3c4-7f8f-457a-a972-0ec786f0cfa2",
           "template": "site:repl.it \"{query}\"",
           "description": "Search for repl.it projects"
         },
         {
-          "id": "google-11",
+          "id": "a208e3ba-64ca-4071-aac8-3d81fd7ac632",
           "template": "site:gitter.im \"{query}\"",
           "description": "Search for gitter chat rooms"
         },
         {
-          "id": "google-12",
+          "id": "a208e3ae-6725-455b-bd92-77d62a6d9911",
           "template": "site:scribd.com \"{query}\"",
           "description": "Search for scribd pdf documents"
         },
         {
-          "id": "google-13",
+          "id": "a208e3a4-7e3f-4f68-8431-11ff8b9dee13",
           "template": "site:coggle.com \"{query}\"",
           "description": "Search for coggle diagrams"
         },
         {
-          "id": "google-14",
+          "id": "a208e399-18f1-420f-9560-924f51a94213",
           "template": "site:papaly.com \"{query}\"",
           "description": "Search for papaly bookmarks"
         },
         {
-          "id": "google-15",
+          "id": "a208e38e-0e6f-4e57-af81-392c9f0d01a8",
           "template": "site:padlet.com \"{query}\"",
           "description": "Search for padlet posts"
         },
         {
-          "id": "google-16",
+          "id": "a208e383-57c1-40a8-b937-94a831e4478c",
           "template": "site:miro.com \"{query}\"",
           "description": "Search for miro boards"
         },
         {
-          "id": "google-17",
+          "id": "a208e37b-59e9-4184-a2e1-3daf88d60494",
           "template": "site:figma.com \"{query}\"",
           "description": "Search for figma designs"
         },
         {
-          "id": "google-18",
+          "id": "a208e372-031a-4129-9ee8-883df884c278",
           "template": "site:lucidchart.com \"{query}\"",
           "description": "Search for lucidchart diagrams"
         },
         {
-          "id": "google-19",
+          "id": "a208e365-bffb-4ab1-aba6-2063e20d48ee",
           "template": "site:whimsical.com \"{query}\"",
           "description": "Search for whimsical diagrams"
         },
         {
-          "id": "google-20",
+          "id": "a208e35a-b5b9-4a92-b36a-45a885f3d016",
           "template": "site:excalidraw.com \"{query}\"",
           "description": "Search for excalidraw diagrams"
         },
         {
-          "id": "google-21",
+          "id": "a208e34d-6222-4d85-9520-4d699b937741",
           "template": "site:draw.io \"{query}\"",
           "description": "Search for draw.io diagrams"
         },
         {
-          "id": "google-22",
+          "id": "a208e340-4369-4474-871d-eb7a7efff113",
           "template": "site:diagrams.net \"{query}\"",
           "description": "Search for diagrams.net diagrams"
         },
         {
-          "id": "google-23",
+          "id": "a208e32e-282a-4798-966a-7dc3f7cdd6c0",
           "template": "site:canva.com \"{query}\"",
           "description": "Search for canva designs"
         },
         {
-          "id": "google-24",
+          "id": "a208e31f-1178-4702-86c2-41fef6c34d28",
           "template": "site:genial.ly \"{query}\"",
           "description": "Search for genial.ly designs"
         },
         {
-          "id": "google-25",
+          "id": "a208e311-d6d8-4b51-8d89-6eab30f0c710",
           "template": "site:http://sharepoint.com \"{query}\"",
           "description": "Search for files in publi SharePoint"
         },
         {
-          "id": "google-26",
+          "id": "a208e303-1852-4551-a4af-0d664b105466",
           "template": "site:firebaseio.com \"{query}\"",
           "description": "Search for files in public Firebase"
         },
         {
-          "id": "google-27",
+          "id": "a208e2f4-e18f-4c98-8b0a-e7462f7ff55c",
           "template": "site:jfrog.io \"{query}\"",
           "description": "Search for files in public JFrog repositories"
+        },
+        {
+          "id": "a208e2d9-de70-4eb8-8d0e-e32b30c13c49",
+          "template": "site:github.com \"{query}\"",
+          "description": "Search for files in public GitHub repositories"
         }
       ],
-      "Valuable for Recon": [
+      "Dorkking dorks" : [
         {
-          "id": "google-28",
-          "template": "inurl:admin \"{query}\"",
-          "description": "Search admin pages with specific term"
+          "id": "a208e436-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "site:*.{query} -site:www.{query}",
+          "description": "Find subdomains of a specific domain, excluding the main www subdomain"
         },
         {
-          "id": "google-29",
-          "template": "intitle:\"index of\" \"{query}\"",
-          "description": "Find indexed directories"
+          "id": "a208e441-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "site:*.*.{query}",
+          "description": "Find subdomains of a specific domain with at least two levels of subdomain"
         },
         {
-          "id": "google-30",
-          "template": "inurl:backup \"{query}\" filetype:zip",
-          "description": "Find backup files"
+          "id": "a208e44c-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "https://crt.sh/?q={query}",
+          "description": "Find SSL certificates for a specific domain using crt.sh"
         },
         {
-          "id": "google-31",
-          "template": "cache:{query}",
-          "description": "View cached version"
+          "id": "a208e453-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "https://web.archive.org/cdx/search/cdx?url=*.{query}/*&output=text&fl=original,timestamp&collapse=urlkey",
+          "description": "Find URLs in the Wayback Machine for a specific domain"
         },
         {
-          "id": "google-32",
-          "template": "\"password\" OR \"passwd\" inurl:config",
-          "description": "Find potential config files with credentials"
+          "id": "a208e45e-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "https://web.archive.org/cdx/search/cdx?url=*.{query}/*&collapse=urlkey&output=text&fl=original,timestamp&filter=original:.*\/.(xls|xml|xlsx|json|pdf|sql|doc|docx|pptx|txt|git|zip|tar\/.gz|tgz|bak|7z|rar|log|cache|secret|db|backup|yml|gz|config|csv|yaml|md|md5|exe|dll|bin|ini|bat|sh|tar|deb|rpm|iso|img|env|apk|msi|dmg|tmp|crt|pem|key|pub|asc)",
+          "description": "Find URLs in the Wayback Machine for a specific domain with specific file extensions"
         },
         {
-          "id": "google-33",
-          "template": "site:{query} filetype:wsdl",
-          "description": "Find potential wsdl files"
+          "id": "a208e469-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "site:{query} inurl:apidocs | inurl:api-docs | inurl:swagger | inurl:api-explorer",
+          "description": "Find API documentation pages for a specific domain"
         },
         {
-          "id": "google-34",
-          "template": "site:{query} filetype:wsdl ext:svc",
-          "description": "Find potential svc files with svc extension"
+          "id": "a208e470-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "intitle:\"Swagger UI - \" + \"Show/Hide\" site:{query}",
+          "description": "Find Swagger UI pages for a specific domain"
         },
         {
-          "id": "google-35",
-          "template": "site:{query} inurl:asmx?wsdl or inurl:jws?wsdl",
-          "description": "Find potential soap based files"
+          "id": "a208e474-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "https://publicwww.com/websites/%22{query}%22/",
+          "description": "Find websites containing specific term using PublicWWW search engine"
+        },
+        {
+          "id": "a208e481-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "site:{query} inurl:wp-content | inurl:wp-includes | inurl:wp-admin",
+          "description": "Find WordPress sites for a specific domain"
+        }
+      ],
+      "Index files and Directories": [
+        {
+          "id": "a208e479-47c2-48f3-8695-c9f09788265d",
+          "template": "intitle:\"index of\" inurl:wp-json/oembed site:{query}",
+          "description": "Find indexed WordPress REST API endpoints for a specific domain"
+        },
+        {
+          "id": "a208e48a-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "intitle:\"Index of\" phpmyadmin site:{query}",
+          "description": "Find indexed phpMyAdmin directories for a specific domain"
+        },
+        {
+          "id": "a208e490-da10-4875-8d82-34aae0046ba9",
+          "template": "intitle:\"Index of\" wp-admin site:{query}",
+          "description": "Find indexed WordPress admin directories for a specific domain"
+        },
+        {
+          "id": "a208e4a2-b4b4-415d-aed0-34ec3da6a3a1",
+          "template": "intitle:index.of.?.sql OR intitle:index.of.?.bak OR intitle:index.of.?.backup site:{query}",
+          "description": "Find indexed SQL backup files for a specific domain"
+        },
+        {
+          "id": "a208e4af-87e1-458a-9865-79e391ba623d",
+          "template": "intitle:\"Index of\" inurl:logs site:{query}",
+          "description": "Find indexed log directories for a specific domain"
+        },
+        {
+          "id": "a208e4bd-18ef-4357-842a-f7ac6922e04c",
+          "template": "intitle:\"Index of\" inurl:uploads site:{query}",
+          "description": "Find indexed upload directories for a specific domain"
+        },
+        {
+          "id": "a208e4cb-2d71-434a-85ea-f8eac660213f",
+          "template": "intitle:\"Index of\" inurl:files site:{query}",
+          "description": "Find indexed file directories for a specific domain"
+        },
+        {
+          "id": "a208e4d9-1c7d-4c9b-9d8c-4d699b937741",
+          "template": "intitle:\"Index of\" inurl:webalizer site:{query}",
+          "description": "Find indexed webalizer directories for a specific domain"
         }
       ]
     },
     "clouds": {
       "Cloud Storage": [
         {
-          "id": "cloud-1",
-          "template": "site:http://s3-external-1.amazonaws.com \"{query}\"",
+          "id": "a208e552-b595-463d-ba98-7c8b80402a17",
+          "template": "site:*.s3-external-1.amazonaws.com \"{query}\"",
           "description": "Search for files in public S3 buckets"
         },
         {
-          "id": "cloud-2",
-          "template": "site:http://s3.dualstack.us-east-1.amazonaws.com \"{query}\"",
+          "id": "a208e55c-9dcf-4b2e-b4bc-304060b5f897",
+          "template": "site:*.s3.dualstack.us-east-1.amazonaws.com \"{query}\"",
           "description": "Search for files in public S3 buckets (dualstack)"
         },
         {
-          "id": "cloud-3",
-          "template": "site:storage.googleapis.com \"{query}\"",
+          "id": "a208e561-cdf2-4d89-9b2a-5d5d2316fdbc",
+          "template": "site:*.storage.googleapis.com \"{query}\"",
           "description": "Search for files in public Google Cloud Storage"
         },
         {
-          "id": "cloud-4",
+          "id": "a208e56d-9ee7-41e9-a58d-4c49935ffe67",
           "template": "site:docs.google.com inurl:'/d/' \"{query}\"",
           "description": "Search for files in public Google Docs"
         },
         {
-          "id": "cloud-5",
+          "id": "a208e575-dd6c-4a84-9865-8e0638ea8b07",
           "template": "site:drive.google.com inurl:'/file/d/' \"{query}\"",
           "description": "Search for files in public Google Drive"
         },
         {
-          "id": "cloud-6",
-          "template": "site:dropbox.com \"{query}\"",
+          "id": "a208e581-4d4e-4c9b-90df-c721f782f906",
+          "template": "site:*.dropbox.com \"{query}\"",
           "description": "Search for files in public Dropbox"
         },
         {
-          "id": "cloud-7",
+          "id": "a208e58d-b819-437f-aa18-393a6e20f0ed",
           "template": "site:onedrive.live.com \"{query}\"",
           "description": "Search for files in public OneDrive"
         },
         {
-          "id": "cloud-8",
+          "id": "a208e595-9c0a-4926-b746-c675991296e8",
           "template": "site:box.com \"{query}\"",
           "description": "Search for files in public Box"
         },
         {
-          "id": "cloud-9",
+          "id": "a208e59f-d0b9-435c-8176-4bdc91050dc6",
           "template": "site:icloud.com \"{query}\"",
           "description": "Search for files in public iCloud"
         },
         {
-          "id": "cloud-10",
+          "id": "a208e5a8-7b02-41c7-ad0c-37805db95433",
           "template": "site:dropbox.com/s \"{query}\"",
           "description": "Search for files in public Dropbox"
         },
         {
-          "id": "cloud-11",
+          "id": "a208e5b1-daa1-4f7f-9b50-a85515729575",
           "template": "site:dev.azure.com \"{query}\"",
           "description": "Search for files in public Azure DevOps"
+        },
+        {
+          "id": "a208e5bb-01b2-484c-80ad-247fdb69c005",
+          "template": "site:dev.azure.com \"{query}\"",
+          "description": "Search for files in public Azure DevOps"
+        },
+        {
+          "id": "a208e5c5-a99f-4add-93d7-a3da89fb231f",
+          "template": "site:digitaloceanspaces.com \"{query}\"",
+          "description": "Search for files in public DigitalOcean Spaces"
         }
       ]
     },
     "github": {
       "Exposed sensitive Data": [
         {
-          "id": "github-1",
+          "id": "a208e5cf-8324-4453-a647-08455e2284e9",
           "template": "org:{query} path:**/*.env",
           "description": "Find .env files with query term"
         },
         {
-          "id": "github-3",
+          "id": "a208e5da-20f9-4181-b2b3-b0a266139bc6",
           "template": "\"private_key\" language:JSON org:{query}",
           "description": "Find exposed private keys"
         },
         {
-          "id": "github-4",
+          "id": "a208e5e3-8701-45bf-aa98-8934359d7150",
           "template": "path:**/*.sql org:{query}",
           "description": "Find SQL files with term"
         }
       ],
       "Exposed config files": [
         {
-          "id": "github-2",
+          "id": "a208e5ed-86c6-4bf4-bbca-d9ed08e05c06",
           "template": "org:{query} path:**/config.php",
           "description": "Find PHP config files"
         },
         {
-          "id": "github-5",
+          "id": "a208e5ff-1331-497e-aff9-ac4d5b77bfa4",
           "template": "path:**/*.htaccess OR path:**/**/*.htaccess org:{query}",
           "description": "Find .htaccess files"
         }
@@ -275,46 +384,46 @@
     "shodan": {
       "http and port": [
         {
-          "id": "shodan-1",
+          "id": "a208e606-4e4b-4e53-9003-b1317d70b9c1",
           "template": "port:8080 org:{query}",
           "description": "Services on port 8080"
         },
         {
-          "id": "shodan-2",
+          "id": "a208e615-6742-4314-b550-924d7a614a02",
           "template": "http.status:401 org:{query}",
           "description": "Unauthenticated services"
         }
       ],
       "Servers and OS": [
         {
-          "id": "shodan-3",
+          "id": "a208e61c-3b5f-4b15-bed5-d31456983a49",
           "template": "product:\"nginx\" country:US org:{query}",
           "description": "Specific server type in US"
         },
         {
-          "id": "shodan-4",
+          "id": "a208e627-3675-4dee-83c5-f2c9c30648e9",
           "template": "os:\"Linux\" org:{query}",
           "description": "Devices running specific OS"
         }
       ],
       "RCE chains": [
         {
-          "id": "shodan-5",
+          "id": "a208e633-f065-4517-9a03-dfd5c775908f",
           "template": "port:443 http.title:\"kibana\" org:{query}",
           "description": "Exposed Kibana dashboards (RCE chains)."
         },
         {
-          "id": "shodan-6",
+          "id": "a208e63e-b128-473b-b365-9414e6c2d09b",
           "template": "port:9200 http.title:\"elasticsearch\" org:{query}",
           "description": "Exposed Elasticsearch instances (RCE chains)."
         },
         {
-          "id": "shodan-7",
+          "id": "a208e64a-1aa5-4cd5-8b2e-dd7d2a84a712",
           "template": "port:5984 http.title:\"couchdb\" org:{query}",
           "description": "Exposed CouchDB instances (RCE chains)."
         },
         {
-          "id": "shodan-8",
+          "id": "a208e655-b20a-4840-b88b-f4213a13c739",
           "template": "product:jenkins http.html:\"Dashboard\" org:{query}",
           "description": "Exposed Jenkins instances (RCE chains)."
         } 
@@ -323,21 +432,21 @@
     "censys": {
       "Services": [
         {
-          "id": "censys-1",
+          "id": "a208e65f-0788-48fd-a35e-8faa0104ba04",
           "template": "services.service_name = \"{query}\"",
           "description": "Find specific service"
         }
       ],
       "ASN": [
         {
-          "id": "censys-2",
+          "id": "a208e66a-9503-4370-9f74-5c9d2d1b8b30",
           "template": "autonomous_system.name = \"{query}\"",
           "description": "Search by autonomous system"
         }
       ],
       "Location": [
         {
-          "id": "censys-3",
+          "id": "a208e675-937f-4ca9-8a5a-850763c0fdcb",
           "template": "location.country = \"US\" AND services.port = 443",
           "description": "HTTPS services in specific country"
         }

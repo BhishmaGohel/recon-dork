@@ -334,11 +334,11 @@ export function ReleasesPage() {
               <h3 className="font-semibold mb-3">Version Support</h3>
               <ul className="text-sm text-muted-foreground space-y-2">
                 <li>
-                  <span className="font-semibold text-foreground">Latest (v1.4.0):</span> Fully supported with new
+                  <span className="font-semibold text-foreground">Latest (v1.5.0):</span> Fully supported with new
                   features and bug fixes
                 </li>
                 <li>
-                  <span className="font-semibold text-foreground">v1.3.0 - v1.0.0:</span> Security patches and critical
+                  <span className="font-semibold text-foreground">v1.0.0 - v1.4.0:</span> Security patches and critical
                   fixes
                 </li>
                 <li>
