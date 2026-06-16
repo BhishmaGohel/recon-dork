@@ -39,11 +39,6 @@ export function generateSearchUrl(
 ): string {
   const finalDork = template.replace(/{query}/g, encodeURIComponent(query))
 
-  // If the template is already a full URL, return it directly
-  if (template.includes('https://') || template.includes('http://')) {
-    return finalDork
-  }
-
   const engines: Record<string, string> = {
     google: 'https://www.google.com/search?q=',
     clouds: 'https://www.google.com/search?q=',
